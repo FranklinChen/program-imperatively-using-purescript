@@ -1,19 +1,19 @@
 module Game.Lenses where
 
+import Type.Proxy (Proxy(..))
 import Data.Lens.Record (prop)
-import Data.Symbol (SProxy(..))
 import Data.Lens as Lens
 import Game.Data(Game(..), GamePoint(..), GameUnit(..))
 
 
 score :: forall a b r. Lens.Lens { score :: a | r } { score :: b | r } a b
-score = prop (SProxy :: SProxy "score")
+score = prop (Proxy :: Proxy "score")
 
 units :: forall a b r. Lens.Lens { units :: a | r } { units :: b | r } a b
-units = prop (SProxy :: SProxy "units")
+units = prop (Proxy :: Proxy "units")
 
 boss :: forall a b r. Lens.Lens { "boss" :: a | r } { "boss" :: b | r } a b
-boss = prop (SProxy :: SProxy "boss")
+boss = prop (Proxy :: Proxy "boss")
 
 _Game :: Lens.Iso' Game
            { "score" :: Int
@@ -25,10 +25,10 @@ _Game = Lens.iso unwrap Game
     unwrap (Game g) = g
 
 health :: forall a b r. Lens.Lens { "health" :: a | r } { "health" :: b | r } a b
-health = prop (SProxy :: SProxy "health")
+health = prop (Proxy :: Proxy "health")
 
 position :: forall a b r. Lens.Lens { "position" :: a | r } { "position" :: b | r } a b
-position = prop (SProxy :: SProxy "position")
+position = prop (Proxy :: Proxy "position")
 
 _GameUnit :: Lens.Iso' GameUnit
                { "health" :: Int
@@ -39,10 +39,10 @@ _GameUnit = Lens.iso unwrap GameUnit
     unwrap (GameUnit u) = u
 
 x :: forall a b r. Lens.Lens { "x" :: a | r } { "x" :: b | r } a b
-x = prop (SProxy :: SProxy "x")
+x = prop (Proxy :: Proxy "x")
 
 y :: forall a b r. Lens.Lens { "y" :: a | r } { "y" :: b | r } a b
-y = prop (SProxy :: SProxy "y")
+y = prop (Proxy :: Proxy "y")
 
 _GamePoint :: Lens.Iso' GamePoint
                 { "x" :: Number

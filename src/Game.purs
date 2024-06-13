@@ -13,7 +13,7 @@ import Data.List.Lazy (replicateM)
 import Data.Profunctor.Choice (class Choice)
 import Data.Traversable (for)
 import Game.Data (Game(..), GameUnit(..), GamePoint(..))
-import Math (pow)
+import Data.Number (pow)
 
 initialState :: Game
 initialState = Game
